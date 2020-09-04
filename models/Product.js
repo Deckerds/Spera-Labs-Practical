@@ -15,7 +15,6 @@ const ProductSchema = mongoose.Schema({
     },
     quantity: {
         type: Number,
-        unique: true,
         required: true
     }
 });
