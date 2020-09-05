@@ -16,9 +16,7 @@ const Product = require('../models/Product');
 
 router.post('/', [
     //Email Address Validation
-    body('email', 'Must be a valid email address').isEmail(),
-    //Password Characters Length Validation
-    body('password', 'Password must be 8 characters or more').isLength({ min: 8 })
+    body('email', 'Must be a valid email address').isEmail()
 ], async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

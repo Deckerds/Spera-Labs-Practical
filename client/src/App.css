@@ -1,0 +1,29 @@
+.navbar {
+  background-color: #000000;
+}
+
+.white-txt {
+  color: #ffffff;
+}
+
+.hello-txt {
+  color: #b9b9b9;
+  font-weight: bold;
+}
+
+.btn:hover {
+  color: #00dce4;
+}
+
+.btn-theme {
+  background-color: #032b75;
+}
+
+.noBullets {
+  list-style: none;
+  font-weight: normal;
+}
+
+.card {
+  width: 400px;
+}

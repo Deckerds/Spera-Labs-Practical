@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { body, validationResult } = require('express-validator');
+const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const bcrypt = require('bcrypt');
@@ -28,9 +28,9 @@ router.get('/', auth, async (req, res) => {
 
 router.post('/', [
     //Email Address Validation
-    body('email', 'Must be a valid Email Address').isEmail(),
+    check('email', 'Must be a valid Email Address').isEmail(),
     //Password Characters Length Validation
-    body('password', 'Password must be more than 8 characters long').isLength({ min: 8 })
+    check('password', 'Password must be more than 8 characters long').exists(),
 ], async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -40,13 +40,13 @@ router.post('/', [
     const { email, password } = req.body;
 
     try {
-        const user = await User.findOne({ email });
+        let user = await User.findOne({ email });
         if (!user) {
-            res.status(400).send({ msg: 'User does not Exist!' });
+            return res.status(400).json({ msg: 'User does not Exist!' });
         }
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            res.status(400).send({ msg: 'Invalid Credentials' });
+            return res.status(400).json({ msg: 'Invalid Credentials' });
         };
 
         let payload = {
@@ -60,8 +60,7 @@ router.post('/', [
         }, (err, token) => {
             if (err) throw err;
             res.json({ token });
-        })
-
+        });
     } catch (err) {
         console.log(err.message);
         res.status(500).send('Server Error');
