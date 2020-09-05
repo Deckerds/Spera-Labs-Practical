@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
 
@@ -51,19 +52,19 @@ const Login = props => {
                     <form onSubmit={onSubmit} className="mt-2">
                         <div className="input-group form-group w-100">
                             <div className="input-group-prepend">
-                                <span className="input-group-text"><i class="fas fa-user"></i></span>
+                                <span className="input-group-text"><i className="fas fa-user"></i></span>
                             </div>
                             <input className="form-control" type="email" name="email" value={email} onChange={onChange} />
                         </div>
                         <div className="input-group form-group w-100">
                             <div className="input-group-prepend">
-                                <span className="input-group-text"><i class="fas fa-key"></i></span>
+                                <span className="input-group-text"><i className="fas fa-key"></i></span>
                             </div>
                             <input className="form-control" type="password" name="password" value={password} onChange={onChange} />
                         </div>
                         <input type="submit" value="Login" className="btn btn-theme white-txt btn-block" />
                     </form>
-                    <p className="mt-4 text-center">Don't have an account?<a href="/register"> Sign Up</a></p>
+                    <p className="mt-4 text-center">Don't have an account?<Link to="/register"> Sign Up</Link></p>
                 </div>
             </div>
         </div>

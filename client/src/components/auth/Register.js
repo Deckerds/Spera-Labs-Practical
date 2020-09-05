@@ -65,31 +65,31 @@ const Register = props => {
                     </div>
                     <form onSubmit={onSubmit} className="mt-2">
                         <div className="form-group w-100">
-                            <label htmlFor="firstName">First Name</label>
+                            <label className="font-weight-bold" htmlFor="firstName">First Name</label>
                             <input className="form-control" type="text" name="firstName" value={firstName} onChange={onChange} placeholder="John" />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="lastName">Last Name</label>
+                            <label className="font-weight-bold" htmlFor="lastName">Last Name</label>
                             <input className="form-control" type="text" name="lastName" value={lastName} onChange={onChange} placeholder="Doe" />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="email">Email</label>
+                            <label className="font-weight-bold" htmlFor="email">Email</label>
                             <input className="form-control" type="email" name="email" value={email} onChange={onChange} placeholder="email@example.com" />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="phone">Phone</label>
+                            <label className="font-weight-bold" htmlFor="phone">Phone</label>
                             <input className="form-control" type="text" name="phone" value={phone} onChange={onChange} placeholder="+94123456789" />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="address">Address</label>
+                            <label className="font-weight-bold" htmlFor="address">Address</label>
                             <input className="form-control" type="text" name="address" value={address} onChange={onChange} placeholder="Colombo 05..." />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="password">Password</label>
+                            <label className="font-weight-bold" htmlFor="password">Password</label>
                             <input className="form-control" type="password" name="password" value={password} onChange={onChange} />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="password2">Confirm Password</label>
+                            <label className="font-weight-bold" htmlFor="password2">Confirm Password</label>
                             <input className="form-control" type="password" name="password2" value={password2} onChange={onChange} />
                         </div>
                         <input type="submit" value="Register" className="btn btn-theme white-txt btn-block" />

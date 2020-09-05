@@ -9,40 +9,38 @@ const Update = props => {
     const authContext = useContext(AuthContext);
 
     const { setAlert } = alertContext;
-    const { clearErrors, loadUser, error } = authContext;
+    const { clearErrors, loadUser, error, isAuthenticated } = authContext;
 
     useEffect(() => {
         loadUser();
-        if (error === 'User Already Exists') {
-            setAlert(error, 'danger');
-            clearErrors();
-        };
         // eslint-disable-next-line
-    }, [error]);
+    }, []);
 
     const [user, setUser] = useState({
         firstName: '',
         lastName: '',
-        email: '',
         phone: '',
         address: '',
         password: '',
         password2: ''
     });
 
-    const { firstName, lastName, email, phone, address, password, password2 } = user;
+    const { firstName, lastName, phone, address, password, password2 } = user;
 
     const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        if (firstName === '' || lastName === '' || email === '' || phone === '' || address === '' || password === '' || password2 === '') {
+        if (firstName === '' || lastName === '' || phone === '' || address === '' || password === '' || password2 === '') {
             setAlert('Please Enter All Fields', 'danger');
         } else if (password.length < 8) {
             setAlert('Password Must Be atleast 8 characters long', 'danger');
             clearErrors();
         } else if (password !== password2) {
             setAlert('Passwords do not match!', 'danger')
+        } else if (!isAuthenticated) {
+            props.history.push('/login');
+            setAlert('You need to logged into update a User', 'danger');
         } else {
             const updateUser = async () => {
                 const config = {
@@ -58,6 +56,7 @@ const Update = props => {
             updateUser();
             if (error === null) {
                 setAlert('Successfully Updated', 'success');
+
             };
         }
     }
@@ -71,31 +70,27 @@ const Update = props => {
                     </div>
                     <form onSubmit={onSubmit} className="mt-2">
                         <div className="form-group w-100">
-                            <label htmlFor="firstName">First Name</label>
+                            <label className="font-weight-bold" htmlFor="firstName">First Name</label>
                             <input className="form-control" type="text" name="firstName" value={firstName} onChange={onChange} />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="lastName">Last Name</label>
+                            <label className="font-weight-bold" htmlFor="lastName">Last Name</label>
                             <input className="form-control" type="text" name="lastName" value={lastName} onChange={onChange} />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="email">Email</label>
-                            <input className="form-control" type="email" name="email" value={email} onChange={onChange} />
-                        </div>
-                        <div className="form-group w-100">
-                            <label htmlFor="phone">Phone</label>
+                            <label className="font-weight-bold" htmlFor="phone">Phone</label>
                             <input className="form-control" type="text" name="phone" value={phone} onChange={onChange} />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="address">Address</label>
+                            <label className="font-weight-bold" htmlFor="address">Address</label>
                             <input className="form-control" type="text" name="address" value={address} onChange={onChange} />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="password">Password</label>
+                            <label className="font-weight-bold" htmlFor="password">Password</label>
                             <input className="form-control" type="password" name="password" value={password} onChange={onChange} />
                         </div>
                         <div className="form-group w-100">
-                            <label htmlFor="password2">Confirm Password</label>
+                            <label className="font-weight-bold" htmlFor="password2">Confirm Password</label>
                             <input className="form-control" type="password" name="password2" value={password2} onChange={onChange} />
                         </div>
                         <input type="submit" value="Update" className="btn btn-theme white-txt btn-block" />

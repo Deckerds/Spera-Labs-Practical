@@ -1,35 +1,43 @@
+/* navbar background */
 .navbar {
   background-color: #0e0029;
 }
 
+/* text color */
 .white-txt {
   color: #ffffff;
 }
 
+/* hello text to User */
 .hello-txt {
   color: #b9b9b9;
   font-weight: bold;
 }
 
+/* button hover color */
 .btn:hover {
   color: #00dce4;
 }
 
+/* whole button theme */
 .btn-theme {
   background-color: #032b75;
 }
 
+/* register button style */
 .btn-register {
   background-color: #2b60c4;
   width: 150px;
   margin-top: 18px;
 }
 
+/* no bullets in navbar list */
 .noBullets {
   list-style: none;
   font-weight: normal;
 }
 
+/* change card width */
 .card {
   width: 400px;
 }
@@ -45,4 +53,19 @@
 /* product item size */
 .p-item {
   width: 250px;
+}
+
+/* change dropdown menu background */
+.dropdown-menu {
+  background-color: #0e0029;
+}
+
+/* Burger icon color */
+.dark-blue-text {
+  color: #ffffff;
+}
+
+/* burger icon size */
+.fa-1x {
+  font-size: 1.5rem;
 }

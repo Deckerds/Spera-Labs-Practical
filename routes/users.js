@@ -70,8 +70,6 @@ router.post('/', [
 // @access  Private
 
 router.put('/:id', [auth, [
-    //Email Address Validation
-    body('email', 'Must be a valid email address').isEmail(),
     //Password Characters Length Validation
     body('password', 'Password must be 8 characters or more').isLength({ min: 8 })
 ]], async (req, res) => {
@@ -79,7 +77,7 @@ router.put('/:id', [auth, [
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
-    const { firstName, lastName, email, phone, address, password } = req.body;
+    const { firstName, lastName, phone, address, password } = req.body;
 
     try {
         let user = await User.findById(req.params.id);
@@ -96,7 +94,6 @@ router.put('/:id', [auth, [
         const userFields = {};
         if (firstName) userFields.firstName = firstName;
         if (lastName) userFields.lastName = lastName;
-        if (email) userFields.email = email;
         if (phone) userFields.phone = phone;
         if (address) userFields.address = address;
         if (password) userFields.password = user.password;

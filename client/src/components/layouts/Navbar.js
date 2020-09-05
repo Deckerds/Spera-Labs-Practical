@@ -17,7 +17,6 @@ const Navbar = ({ title, icon }) => {
     };
 
 
-
     const onDelete = () => {
         let shouldDelete = window.confirm('Do you really want to delete your User Account?');
         if (shouldDelete) {
@@ -31,12 +30,15 @@ const Navbar = ({ title, icon }) => {
         <Fragment>
             <li className="nav-item nav-link hello-txt mr-1">
                 <Link className="nav-link white-txt" to='/'>Hello, {user && user.firstName}</Link></li>
-            <li className="nav-item nav-link">
-                <a className="nav-link white-txt mr-1" href={user && `/update/${user._id}`}>Update</a>
+            <div className="nav-item nav-link white-txt mr-1 dropdown">
+                <li className="dropdown-toggle nav-link white-txt" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Profile
             </li>
-            <li className="nav-item nav-link">
-                <a className="nav-link white-txt mr-1" href="#!" onClick={onDelete}>Delete</a>
-            </li>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a className="nav-link text-light mr-1" href={user && `/update/${user._id}`}>Update</a>
+                    <a className="nav-link text-light mr-1" href="#!" onClick={onDelete}>Delete</a>
+                </div>
+            </div>
             <li className="nav-item nav-link">
                 <a className="nav-item nav-link" onClick={onLogout} href="#!">
                     <i className="fas fa-sign-out-alt white-txt mr-1"></i><span className="hide-sm white-txt">Logout</span>
@@ -61,7 +63,8 @@ const Navbar = ({ title, icon }) => {
             <nav className="navbar navbar-expand-lg">
                 <h3 className="text-light"><i className={icon} /> {title}</h3>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                    <span className="dark-blue-text navbar-toggler-icon"><i
+                        className="fas fa-bars fa-1x"></i></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto navUl">

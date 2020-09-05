@@ -39,7 +39,7 @@ export const ProductForm = () => {
             setProduct({
                 name: '',
                 description: '',
-                quantity: 0
+                quantity: ''
             })
         } else {
             updateCurrent(product);
@@ -52,12 +52,15 @@ export const ProductForm = () => {
             <div>
                 <div className="text-center h4 text-primary mt-3 mb-3">{current ? 'Update Product' : 'Add Product'}</div>
                 <div className="form-group">
+                    <label className="font-weight-bold" htmlFor="Name">Product Name</label>
                     <input className="w-100" type="text" placeholder="Name" name="name" value={name} onChange={onChange} />
                 </div>
                 <div className="form-group">
+                    <label className="font-weight-bold" htmlFor="Description">Product Description</label>
                     <input className="w-100" type="text" placeholder="Description" name="description" value={description} onChange={onChange} />
                 </div>
                 <div className="form-group">
+                    <label className="font-weight-bold" htmlFor="Quantity">Product Quantity</label>
                     <input className="w-100" type="text" placeholder="Quantity" name="quantity" value={quantity} onChange={onChange} />
                 </div>
 

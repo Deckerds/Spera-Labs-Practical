@@ -13,7 +13,7 @@ const ProductItem = ({ product }) => {
     const onDelete = () => {
         deleteProduct(_id);
         clearCurrent();
-    }
+    };
 
     return (
         <div className="card p-item bg-light mt-2">
@@ -31,10 +31,9 @@ const ProductItem = ({ product }) => {
                     </li>
                 </ul>
             </div>
-            <div class="card-footer">
+            <div className="card-footer">
                 <p className="d-flex justify-content-between">
                     <button className="btn btn-dark" onClick={() => setCurrent(product)}>Edit</button>
-                    <button className="btn btn-secondary ">View</button>
                     <button className="btn btn-danger  " onClick={onDelete}>Delete</button>
                 </p>
             </div>
