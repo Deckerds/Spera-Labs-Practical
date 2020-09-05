@@ -16,23 +16,26 @@ const ProductItem = ({ product }) => {
     }
 
     return (
-        <div className="card bg-light mt-2">
+        <div className="card p-item bg-light mt-2">
             <div className="card-body">
-                <div className="h5 text-primary">{name} {' '}
+                <div className="h5 text-primary text-center">{name} {' '}
                 </div>
                 <ul className="list-unstyled pl-0 pt-1">
                     <li>
-                        {description && (<i className="fas fa-envelope-open"> {description}</i>)
+                        {description && (<p><span className="font-weight-bold">Description:</span> {description}</p>)
                         }
                     </li>
                     <li>
-                        {quantity && (<i className="fas fa-phone"> {quantity}</i>)
+                        {quantity && (<p><span className="font-weight-bold">Quantity:</span> {quantity}</p>)
                         }
                     </li>
                 </ul>
-                <p>
-                    <button className="btn btn-dark btn-sm mr-1" onClick={() => setCurrent(product)}>Edit</button>
-                    <button className="btn btn-danger btn-sm" onClick={onDelete}>Delete</button>
+            </div>
+            <div class="card-footer">
+                <p className="d-flex justify-content-between">
+                    <button className="btn btn-dark" onClick={() => setCurrent(product)}>Edit</button>
+                    <button className="btn btn-secondary ">View</button>
+                    <button className="btn btn-danger  " onClick={onDelete}>Delete</button>
                 </p>
             </div>
         </div >

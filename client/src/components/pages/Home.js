@@ -15,14 +15,20 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="container d-flex justify-content-center">
-            <div className="row w-75">
-                <div className="col">
+        <div className="container">
+            <div >
+                <div className="w-50 ml-auto mr-auto">
                     <ProductForm />
                 </div>
-                <div className="col">
-                    <FilterProduct />
-                    <Products />
+                <div className="mt-5">
+                    <hr />
+                    <h2 className="text-center mt-3">Your <span className="text-primary">Products</span></h2>
+                    <div className="w-50">
+                        <FilterProduct />
+                    </div>
+                    <div>
+                        <Products />
+                    </div>
                 </div>
             </div>
         </div>

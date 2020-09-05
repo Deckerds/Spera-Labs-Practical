@@ -19,7 +19,7 @@ const Product = () => {
     return (
         <Fragment>
             {products !== null && !loading ? (
-                <div>
+                <div className="d-flex justify-content-around flex-wrap m-2">
                     {filtered !== null ? filtered.map(product =>
                         (<ProductItem key={product._id} product={product} />)
                     ) : products.map(product => (

@@ -42,23 +42,28 @@ const Login = props => {
     }
 
     return (
-        <div className="container mt-4">
+        <div className="container mt-5">
             <div className="d-flex justify-content-center h-100">
                 <div className="card p-2 pb-4">
                     <div className="card-header">
                         <h2 className="text-center">Account <span className="text-primary">Login</span></h2>
                     </div>
                     <form onSubmit={onSubmit} className="mt-2">
-                        <div className="form-group w-100">
-                            <label htmlFor="email">Email</label>
+                        <div className="input-group form-group w-100">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
                             <input className="form-control" type="email" name="email" value={email} onChange={onChange} />
                         </div>
-                        <div className="form-group w-100">
-                            <label htmlFor="password">Password</label>
+                        <div className="input-group form-group w-100">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
                             <input className="form-control" type="password" name="password" value={password} onChange={onChange} />
                         </div>
                         <input type="submit" value="Login" className="btn btn-theme white-txt btn-block" />
                     </form>
+                    <p className="mt-4 text-center">Don't have an account?<a href="/register"> Sign Up</a></p>
                 </div>
             </div>
         </div>

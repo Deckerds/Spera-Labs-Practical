@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #000000;
+  background-color: #0e0029;
 }
 
 .white-txt {
@@ -19,6 +19,12 @@
   background-color: #032b75;
 }
 
+.btn-register {
+  background-color: #2b60c4;
+  width: 150px;
+  margin-top: 18px;
+}
+
 .noBullets {
   list-style: none;
   font-weight: normal;
@@ -26,4 +32,17 @@
 
 .card {
   width: 400px;
+}
+
+/* Input Form Icons */
+.input-group-prepend span {
+  width: 40px;
+  background-color: #032b75;
+  color: rgb(255, 255, 255);
+  border: 0 !important;
+}
+
+/* product item size */
+.p-item {
+  width: 250px;
 }

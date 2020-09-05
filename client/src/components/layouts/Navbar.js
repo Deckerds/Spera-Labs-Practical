@@ -16,9 +16,15 @@ const Navbar = ({ title, icon }) => {
         logout();
     };
 
+
+
     const onDelete = () => {
-        deleteUser(user._id)
-        setAlert('Deleted Successfully', 'danger');
+        let shouldDelete = window.confirm('Do you really want to delete your User Account?');
+        if (shouldDelete) {
+            deleteUser(user._id);
+            setAlert('Deleted Successfully', 'danger');
+        }
+
     };
 
     const authLinks = (
@@ -74,7 +80,7 @@ Navbar.propTypes = {
 
 Navbar.defaultProps = {
     title: 'Practical CRUD',
-    icon: 'fas fa-id-card-alt'
+    icon: 'fas fa-user-edit'
 }
 
 export default Navbar;

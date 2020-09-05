@@ -66,23 +66,23 @@ const Register = props => {
                     <form onSubmit={onSubmit} className="mt-2">
                         <div className="form-group w-100">
                             <label htmlFor="firstName">First Name</label>
-                            <input className="form-control" type="text" name="firstName" value={firstName} onChange={onChange} />
+                            <input className="form-control" type="text" name="firstName" value={firstName} onChange={onChange} placeholder="John" />
                         </div>
                         <div className="form-group w-100">
                             <label htmlFor="lastName">Last Name</label>
-                            <input className="form-control" type="text" name="lastName" value={lastName} onChange={onChange} />
+                            <input className="form-control" type="text" name="lastName" value={lastName} onChange={onChange} placeholder="Doe" />
                         </div>
                         <div className="form-group w-100">
                             <label htmlFor="email">Email</label>
-                            <input className="form-control" type="email" name="email" value={email} onChange={onChange} />
+                            <input className="form-control" type="email" name="email" value={email} onChange={onChange} placeholder="email@example.com" />
                         </div>
                         <div className="form-group w-100">
                             <label htmlFor="phone">Phone</label>
-                            <input className="form-control" type="text" name="phone" value={phone} onChange={onChange} />
+                            <input className="form-control" type="text" name="phone" value={phone} onChange={onChange} placeholder="+94123456789" />
                         </div>
                         <div className="form-group w-100">
                             <label htmlFor="address">Address</label>
-                            <input className="form-control" type="text" name="address" value={address} onChange={onChange} />
+                            <input className="form-control" type="text" name="address" value={address} onChange={onChange} placeholder="Colombo 05..." />
                         </div>
                         <div className="form-group w-100">
                             <label htmlFor="password">Password</label>

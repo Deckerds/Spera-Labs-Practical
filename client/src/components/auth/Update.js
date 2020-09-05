@@ -13,6 +13,10 @@ const Update = props => {
 
     useEffect(() => {
         loadUser();
+        if (error === 'User Already Exists') {
+            setAlert(error, 'danger');
+            clearErrors();
+        };
         // eslint-disable-next-line
     }, [error]);
 
