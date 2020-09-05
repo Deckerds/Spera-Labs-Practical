@@ -12,8 +12,10 @@ npm client-install
 
 ### Mongo connection setup
 
+```bash
 Edit your /config/default.json file to include the correct MongoDB URI
 Current MongoURI = "mongodb://localhost:27017/practicaldb"
+```
 
 ### Run Server
 
